@@ -33,15 +33,7 @@ require_once("php/pages/todo.php");
 
 // mapping the first chapter of each part to the title of the part
 $parts = array(
-  "Introduction"                    => "Preliminaries",
-  "Schemes"                         => "Schemes",
-  "Chow Homology and Chern Classes" => "Topics in Scheme Theory",
-  "Algebraic Spaces"                => "Algebraic Spaces",
-  "Quotients of Groupoids"          => "Topics in Geometry",
-  "Formal Deformation Theory"       => "Deformation Theory",
-  "Algebraic Stacks"                => "Algebraic Stacks",
-  "Moduli Stacks"                   => "Topics in Moduli Theory",
-  "Examples"                        => "Miscellany");
+  "Volume 1"                    => "Algebraic General Topology. Volume 1");
 
 // we try to construct the page object
 try {
@@ -51,7 +43,7 @@ try {
     $database->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
   }
   catch(PDOException $e) {
-    print "Something went wrong with the database. If the problem persists, please contact us at <a href='mailto:stacks.project@gmail.com'>stacks.project@gmail.com</a>.";
+    print "Something went wrong with the database. If the problem persists, please contact us at <a href='mailto:porton@narod.ru'>porton@narod.ru</a>.";
     // if there is actually a persistent error: add output code here to check it
     exit();
   }
@@ -60,13 +52,13 @@ try {
     $page = "index";
   else
     $page = $_GET["page"];
-  
+
   // all the possible page building scenarios
   switch($page) {
     case "about":
       $page = new AboutPage($database);
       break;
-  
+
     case "acknowledgements":
       $page = new AcknowledgementsPage($database);
       break;
@@ -74,7 +66,7 @@ try {
     case "api":
       $page = new APIPage($database);
       break;
-  
+
     case "bibliography":
       if(!empty($_GET["key"])) {
         if (bibliographyItemExists($_GET["key"]))
@@ -85,27 +77,27 @@ try {
       else
         $page = new BibliographyPage($database);
       break;
-  
+
     case "browse":
       $page = new BrowsePage($database);
       break;
-  
+
     case "chapter":
       if (!is_numeric($_GET["chapter"]) or strstr($_GET["chapter"], ".") or intval($_GET["chapter"]) <= 0) {
         $page = new NotFoundPage("<p>The keys for a chapter should be (strictly) positive integers, but <var>" . htmlentities($_GET["chapter"]) . "</var> was provided.");
         break;
       }
-  
+
       if (sectionExists($_GET["chapter"]))
         $page = new ChapterPage($database, intval($_GET["chapter"]));
       else
         $page = new NotFoundPage("<p>The chapter with the key <var>" . htmlentities($_GET["chapter"]) . "</var> does not exist.");
       break;
-  
+
     case "contribute":
       $page = new ContributePage($database);
       break;
-  
+
     case "index":
       $page = new IndexPage($database);
       break;
@@ -133,16 +125,16 @@ try {
     case "markdown":
       $page = new MarkdownPage($database);
       break;
-  
+
     case "recent-comments":
       if (empty($_GET["number"]))
         $number = 1;
       else
         $number = $_GET["number"];
-  
+
       $page = new RecentCommentsPage($database, $number);
       break;
-  
+
     case "search":
       if (!isset($_GET["keywords"]))
         $page = new SearchPage($database);
@@ -160,7 +152,7 @@ try {
         $page = new SearchResultsPage($database, $options);
       }
       break;
-  
+
     case "statistics":
       if(!empty($_GET["tag"])) {
         $tag = strtoupper($_GET['tag']);
@@ -181,7 +173,7 @@ try {
       else
         $page = new TagLookupPage($database);
       break;
-  
+
     case "tag":
       if(!empty($_GET["tag"])) {
         $tag = strtoupper($_GET['tag']);
@@ -196,16 +188,16 @@ try {
         }
         else
           $page = new MissingTagPage($database, $tag);
-  
+
       }
       else
         $page = new TagLookupPage($database);
       break;
-  
+
     case "tags":
       $page = new TagsPage($database);
       break;
-  
+
     case "todo":
       $page = new TodoPage($database);
       break;
@@ -231,18 +223,18 @@ catch(PDOException $e) {
 <!doctype html>
 <html>
   <head>
-    <title>Stacks Project<?php print $title; ?></title>
+    <title>AGT Project<?php print $title; ?></title>
     <link rel='stylesheet' type='text/css' href='<?php print href("css/main.css"); ?>'>
 
-    <link rel='icon' type='image/vnd.microsoft.icon' href='<?php print href("stacks.ico"); ?>'> 
-    <link rel='shortcut icon' type='image/vnd.microsoft.icon' href='<?php print href("stacks.ico"); ?>'> 
+    <link rel='icon' type='image/vnd.microsoft.icon' href='<?php print href("stacks.ico"); ?>'>
+    <link rel='shortcut icon' type='image/vnd.microsoft.icon' href='<?php print href("stacks.ico"); ?>'>
     <meta charset='utf-8'>
 
     <?php print $head; ?>
   </head>
 
   <body>
-    <h1><a href='<?php print href(''); ?>'>The Stacks Project</a></h1>
+    <h1><a href='<?php print href(''); ?>'>The AGT Project</a></h1>
 
     <ul id='menu'>
       <li><a href='<?php print href(""); ?>'>home</a>

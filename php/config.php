@@ -5,9 +5,9 @@
     "jQuery" => "https://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js",
     "MathJax" => "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js",
     "D3" => "http://d3js.org/d3.v3.min.js",
-    "blog" => "http://math.columbia.edu/~dejong/wordpress/",
-    "blog feed" => "http://math.columbia.edu/~dejong/wordpress/?feed=rss2",
-    "GitHub feed" => "https://github.com/stacks/stacks-project/commits/master.atom",
+    "blog" => "https://portonmath.wordpress.com",
+    "blog feed" => "https://portonmath.wordpress.com/feed/",
+    "GitHub feed" => "https://github.com/vporton/agt-book/commits/master.atom",
     "SimplePie cache" => $_SERVER["DOCUMENT_ROOT"] . "/php/cache",
   );
 ?>

@@ -23,7 +23,7 @@ class AcknowledgementsPage extends Page {
     $output .= "</ol>";
 
     $output .= "<h2>Open-source software</h2>";
-    $output .= "<p>The Stacks project is built using open-source: LaTeX, Python, PHP, ...";
+    $output .= "<p>The AGT project is built using open-source: LaTeX, Python, PHP, ...";
     $output .= "<p>Besides these usual suspects, the website also uses several libraries. These are";
     $output .= "<ul>";
     $output .= "<li><a href='http://d3js.org/'>D3.js</a>";
@@ -42,13 +42,9 @@ class AcknowledgementsPage extends Page {
   public function getSidebar() {
     $output = "";
 
-    $output .= "<h2>Supporting institutions</h2>";
-    $output .= "<div style='text-align: center'>";
-    $output .= "<a href='http://simonsfoundation.org'><img style='margin-bottom: 30px; margin-top: 10px' width='180' src='" . href("images/logos/simons.png") . "'></a>";
-    $output .= "<a href='http://columbia.edu'><img style='margin-bottom: 30px' src='" . href("images/logos/columbia.jpg") . "'></a>";
-    $output .= "<a href='http://nsf.gov'><img width='180' src='" . href("images/logos/nsf.gif") . "'></a>";
-    $output .= "</div>";
-    
+    $output .= "<h2>Support the project</h2>";
+    $output .= "<p>To support the project, <a href='https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FB594LPXDS9NW'>send money</a> to Victor Porton.</p>";
+
     return $output;
   }
   public function getTitle() {
