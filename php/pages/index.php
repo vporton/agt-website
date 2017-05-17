@@ -41,7 +41,7 @@ class IndexPage extends Page {
     $value .= "<p>The AGT project is hosted at GitHub, so you can <a href='https://github.com/vporton/agt-book/commits/master'>browse the complete history</a> there.</p>";
 
     $value .= "<h2>License</h2>";
-    $value .= "This project is licensed under the <a href='http://creativecommons.org/licenses/by/4.0/'>Creative Commons Attribution 4.0 International License</a>.";
+    $value .= "This book is licensed under both the <a href='http://creativecommons.org/licenses/by/4.0/'>Creative Commons Attribution 4.0 International License</a> and the <a href='https://github.com/stacks/stacks-project/blob/master/COPYING'>GNU Free Documentation License</a>. The site excluding the book itself is licensed under <a href='https://github.com/stacks/stacks-project/blob/master/COPYING'>GNU Free Documentation License</a>.</p>";
 
     return $value;
   }
